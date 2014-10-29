@@ -14,7 +14,9 @@ class NukeInterceptor implements Interceptor {
     @Override
     Object beforeInvoke(Object obj, String methodName, Object[] args) {
         // ------------ START EDITING HERE ----------------------
-
+        if (methodName == 'nukeCity' && args[0] != 'admin')
+            isAuthorized = false
+        null
 
         // ------------ STOP EDITING HERE  ----------------------
     }
@@ -22,7 +24,8 @@ class NukeInterceptor implements Interceptor {
     @Override
     Object afterInvoke(Object obj, String methodName, Object[] args, Object result) {
         // ------------ START EDITING HERE ----------------------
-
+        isAuthorized = true
+        result
 
         // ------------ STOP EDITING HERE  ----------------------
     }
@@ -30,7 +33,7 @@ class NukeInterceptor implements Interceptor {
     @Override
     boolean doInvoke() {
         // ------------ START EDITING HERE ----------------------
-
+        isAuthorized
 
         // ------------ STOP EDITING HERE  ----------------------
     }

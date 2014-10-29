@@ -26,7 +26,7 @@ public class JavaPerson implements Serializable {
     }
 
     // ------------ START EDITING HERE ----------------------
-
+    public String getFirstName() { return this.firstName; }
 
     // ------------ STOP EDITING HERE  ----------------------
 

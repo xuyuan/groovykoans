@@ -28,12 +28,12 @@ class Koan12 extends GroovyTestCase {
         // Use shouldFail() to make this unit test pass. Try to be specific about the exception type.
 
         // ------------ START EDITING HERE ----------------------
-
+        shouldFail {
 
             // ------------ STOP EDITING HERE  ----------------------
             Integer.nonExistentMethod()
             // ------------ START EDITING HERE ----------------------
-
+        }
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -49,10 +49,13 @@ class Koan12 extends GroovyTestCase {
         Factory factory = new Factory([1, 2])
         long startTime = System.currentTimeMillis()
         // ------------ START EDITING HERE ----------------------
-
+        def stub = new Expando();
+        stub.work = {  }
+        factory.setWorker(stub)
 
         // ------------ STOP EDITING HERE  ----------------------
-        factory.work()
+        factory.work()gitk
+
         long endTime = System.currentTimeMillis()
         assert endTime - startTime < 2000
 
@@ -63,7 +66,7 @@ class Koan12 extends GroovyTestCase {
         def staticFactory = new StaticFactory(numbers: [2, 3])
         startTime = System.currentTimeMillis()
         // ------------ START EDITING HERE ----------------------
-
+        staticFactory.metaClass.'static'.work = {}
 
         // ------------ STOP EDITING HERE  ----------------------
         staticFactory.work()
